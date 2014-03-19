@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         project: {
-            name: "Setefi"
+            name: "<project-name>"
         },
 
         datetime: {
