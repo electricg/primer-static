@@ -1,0 +1,4 @@
+body {
+    @extend %clearfix; 
+    color: #8a8a8a; 
+} 

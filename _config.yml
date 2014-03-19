@@ -1,0 +1,82 @@
+# =================================================================== 
+# Project owner / contributor
+# =================================================================== 
+dev:
+    name    : Fabrizio Calderan
+    account : fcalderan
+    email   : fcalderan@h-art.com
+
+# =================================================================== 
+# Language & Copyright Note
+# =================================================================== 
+lang: it
+meta:
+    author: H-art 2014 
+    copyright: H-art 2014
+
+
+# =================================================================== 
+# Jekyll Base configuration 
+# =================================================================== 
+source  : ./src
+plugins : ./src/_plugins
+include : []
+exclude : [.htaccess]
+
+
+# =================================================================== 
+# Jekyll-Assets Base configuration 
+# =================================================================== 
+assets:
+    dirname: assets
+    baseurl: assets/    
+    sources:
+        - _assets/javascripts
+        - _assets/stylesheets
+
+    css_compressor: sass
+    cache: false
+    
+
+# =================================================================== 
+# Site Libraries 
+# =================================================================== 
+libs:
+    
+    # Needed for livereload. You may use the script included 
+    # in tools/ip.sh to retrieve your LAN IP
+    livereload : http://<your-ip>:35729/livereload.js 
+
+    shiv       : js/vendors/html5-shiv.js
+    jquery     : js/vendors/jquery-1.11.0.min.js
+    yepnope    : js/vendors/yepnope.1.5.4-min.js
+
+
+# =================================================================== 
+# OpenGraph, Twitter and Facebook meta information
+# =================================================================== 
+
+og:
+    url     : <your-site-url>           
+
+
+tw:
+    creator :
+    site    :
+    domain  :
+
+
+fb:
+    appid   : 123456789012
+
+
+# =================================================================== 
+# Google Analytics tracker
+# =================================================================== 
+
+google:
+    analytics:
+        UA: UA-12345678-9
+
+
+

@@ -1,0 +1,52 @@
+    <!-- ::header.html -->
+        <header role="banner">
+
+        
+            <div>
+                <!-- :: L'elemento <header> non richiede necessariamente un heading 
+                        http://www.w3.org/html/wg/drafts/html/master/sections.html#the-header-element
+                        (il logo non è un <h1> : http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/) 
+                -->
+
+                <!-- :: Il tag <a> può essere omesso (ad es. in homepage) --> 
+                <a href="index.html"><img src="images/logo.png" alt="Setefi" id="logo" /></a>
+
+    			<nav>
+                    <ul role="navigation">
+                        <li{% if (page.section == 'chi'%} class="current"{% endif %}><a href="chisiamo.html">Chi siamo</a></li>
+                        <li{% if (page.section == 'vis'%} class="current"{% endif %}><a href="#">La Nostra Vision</a></li>
+                        <li{% if (page.section == 'ser'%} class="current"{% endif %}><a href="#">I Nostri Servizi</a></li>
+                        <li{% if (page.section == 'cli'%} class="current"{% endif %}><a href="#">I Nostri Clienti</a></li>
+                        <li{% if (page.section == 'con'%} class="current"{% endif %}><a href="#">Contatti</a></li>
+                    </ul>
+                </nav>
+
+                <!-- :: Aggiornare gli element <link> nell'<head> con le url corrispondenti -->
+                
+                <nav>
+                    <ul id="mnu-languages">
+                        <li class="current"><a href="#" rel="alternate" hreflang="it">ita</a></li>
+                        <li><a href="#" rel="alternate" hreflang="en">eng</a></li>
+                    </ul>
+                </nav>
+
+
+                <div id="mnu-servizi">
+                    <h2>Servizi online</h2>
+
+                    <ul>
+                        <li><a href="#">Moneta Online</a></li>
+                        <li><a href="#">Moneta Web</a></li>                        
+                    </ul>
+                </div>
+
+            </div>
+
+        </header>
+
+        <hr />
+        <!-- ::header.html -->
+
+
+
+

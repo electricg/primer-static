@@ -1,0 +1,265 @@
+---
+# Select page layout
+layout: setefi 
+type: hp
+title: Homepage
+---
+<section id="hpcarousel">
+    
+    
+    <ul>
+       {% for i in (1..2) %}
+        <li>
+            <figure> 
+                <img src="images/fixtures/emozionale{{ i }}.jpg" 
+                alt="Setefi esce dai confini, anche quelli italiani" 
+                aria-labelledby="desc-{{ i }}" />
+
+                <figcaption id="desc-{{ i }}">
+                    <span>Setefi ti offre un unico servizio per gestire i POS
+                    di tutte le tue sedi estere.</span>
+                    <a href="#">Scopri di più</a>
+                </figcaption>
+
+            </figure> 
+        </li>
+        {% endfor %}
+        
+    </ul>
+</section>
+
+
+<section id="hpnews">
+    
+    <h2>News</h2>
+    
+    <!-- :: Scelta di una lista per mantenere il markup semanticamente più coerente nel 
+         caso si preveda di inserire più news -->
+    <ul class="newslist">
+        {% include news.html %}
+    </ul>
+</section>
+
+
+<section class="boxservizi">
+
+    <article>
+        <h2>Pos</h2>
+
+        <figure>
+            <img src="images/fixtures/hp-pos.jpg" alt="" />
+        </figure>
+
+        <div>
+            <p>
+                <strong>Setefi</strong>, nata alla fine degli anni '80 nell'ambito 
+                di <strong>CARIPLO</strong>, ha seguito le diverse evoluzioni del Gruppo Bancario&hellip;
+                <br /><br />
+                <strong>Sei interessato ad uno dei nostri prodotti</strong>?
+            </p>
+
+            <p>
+                <a href="#">Scopri i Servizi Pos</a>
+                <span>Oppure contatta il <em>servizio clienti</em> al 
+                      numero <em>800.825.099</em></span>
+            </p>
+        </div>
+    </article>
+
+    <article>
+        <h2>Carte</h2>
+
+        <figure>
+            <img src="images/fixtures/hp-carte.jpg" alt="" />
+        </figure>
+
+        <div>
+            <p>
+                <strong>Setefi</strong>, nata alla fine degli anni '80 nell'ambito 
+                di <strong>CARIPLO</strong>, ha seguito le diverse evoluzioni del Gruppo Bancario&hellip;
+                <br /><br />
+                <strong>Sei interessato ad uno dei nostri prodotti</strong>?
+            </p>
+
+            <p>
+                <a href="#">Scopri i Servizi Carte</a>
+                <span>Oppure contatta il <em>servizio clienti</em> al 
+                      numero <em>800.825.099</em></span>
+            </p>
+        </div>
+    </article>
+
+</section>
+
+
+
+
+<section id="hpscopri">
+
+    <h2>Trova il servizio giusto per la tua attivit&agrave;</h2>
+
+    <form action="#" method="get">
+        
+        <div>
+            <p>
+                Sei un negoziante o un ristoratore?
+                Qual è la parola che meglio descrive la tua azienda?
+            </p>
+            <p>
+                Scopri il servizio adato alla tua attivit&agrave;
+                con <b>soli due click</b>!
+            </p>
+        </div>
+
+
+        <fieldset>
+
+            <legend id="hpleg1">Qual è la tua attività?</legend>
+    
+            <ul role="radiogroup" aria-labelledby="hpleg1">
+                <li>
+                    <input type="radio" name="attivita" value="ristorante" id="att_ris" checked="checked" />
+                    <label for="att_ris">Ristorante</label>
+                </li>
+                <li>
+                    <input type="radio" name="attivita" value="negozio" id="att_neg" />
+                    <label for="att_neg">Negozio</label>
+                </li>
+            </ul>
+        </fieldset>
+
+
+        <fieldset>
+            <legend id="hpleg2">Qual è il tuo obiettivo?</legend>
+
+            <span aria-labelledby="hpleg2">
+                <b>Innovazione</b>
+                <select name="obiettivo">
+                    <option value="1">Innovazione</option>
+                    <option value="2">Liquidità</option>
+                    <option value="3">Assets management</option>
+                    <option value="4">Accesso al credito</option>
+                </select>
+            </span>
+        </fieldset>
+
+        <button type="submit">Vai</button>
+    </form>
+
+</section>
+
+
+
+<section class="boxservizi">
+
+    <article id="primopiano">
+        <h2>In primo piano</h2>
+
+        <div>
+            <div>
+                <h3><a href="#news">News</a></h3>
+                <p id="news">
+                    <strong>Un mobile POS ad hoc per le partite IVA</strong>
+                    Oltre un milione di partite IVA non
+                    accettano pagamenti elettronici; a questo
+                    target si rivolge l'iniziativa di Setefi che
+                    propone un mobile POS con tecnologia
+                    NFC. Ne parla Maurizio Manzotti&hellip;
+
+                    <a href="#">Continua a leggere</a>
+                </p>
+
+                <h3><a href="#tutorial">Tutorial</a></h3>
+                <p id="tutorial">
+                    <strong>Cambiare il rotolo del POS</strong>
+
+                    Quando il POS segnala la mancanza della
+                    carta, è necessario procedere
+                    immediatamente con la sostituzione
+                    del rotolino di carta. In caso contrario
+                    non è possibile eseguire correttamente&hellip;
+
+                    <a href="#">Continua a leggere</a>
+                </p>
+
+                <h3><a href="#faq">FAQ</a></h3>
+                <p id="faq">
+                    <strong>Quanto tempo è necessario
+                            per l'installazione del POS Setefi?</strong>
+
+                    Di norma l'installazione del terminale
+                    avviene entro 7 giorni dal pervenimento
+                    in Setefi del contratto  sottoscritto dal
+                    cliente.
+                    
+                    <a href="#">Continua a leggere</a>
+                </p>
+            </div>
+        </div>
+
+        
+    </article>
+
+    <article id="servclienti">
+        <h2>Servizio Clienti</h2>
+
+        <div>
+            <p>
+                <strong>Assistenza</strong>
+            </p>
+            <ul>
+                <li>
+                    <b>Numero Verde da telefono fisso</b>
+                    <em>(24 ore al giono, 7 giorni su 7)</em>
+                    <span>800.825.099</span>
+                </li>
+                <li>
+                    <b>Da estero e cellulari</b>
+                    <em>(24 ore al giono, 7 giorni su 7)</em>
+                    <span>02 8913753</span>
+                </li>
+            </ul>
+
+            <p id="addr">
+                <span><b>Indirizzo e-mail </b>setefi.info@monetaonline.it</span>
+                <span><b>Centralino </b>02 891371</span>
+                <span><b>Fax </b>02 89137213</span>
+            </p>
+
+        </div>
+    </article>
+
+</section>
+
+
+
+{% contentfor pagescript %}
+<!-- :: Script per il funzionamento delle checkbox stilate su IE < 9 -->
+<!--[if lt IE 9]> 
+<script>
+    $(function() {
+        var rds = $('input[type="radio"] ~ label');
+        rds.on('click', function(ev) {
+            ev.preventDefault();
+            var r = $(this).prev('input'); 
+            if (!r.hasClass("checked")) {
+                rds.prev('input').removeClass("checked");
+                r.toggleClass("checked", "checked");
+                r.attr('checked', 'checked');
+            }    
+        })
+        .eq(0).prev('input').attr('checked', 'checked').addClass("checked");
+    })
+</script>
+<![endif]-->
+
+<!-- :: Script per il funzionamento delle select stilate -->
+<script>
+    $(function() {
+        $('select').on('change', function() {
+            var t = this, $t = $(t);
+            $t.prev('b').text(t.options[t.selectedIndex].text);
+        });
+    });
+</script>
+{% endcontentfor %}

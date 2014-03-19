@@ -1,0 +1,12 @@
+{% if page.tw %}
+
+    <!-- :: meta Twitter (https://dev.twitter.com/docs/cards) -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@{{ site.tw.site }}">
+	<meta name="twitter:creator" content="@{{ site.tw.creator }}">
+	<meta name="twitter:domain" content="{{ site.tw.domain }}">
+	<meta name="twitter:title" content="{{ page.tw.title }}">
+	<meta name="twitter:description" content="{{ page.tw.desc }}">
+	<meta name="twitter:image:src" content="{{ page.tw.image }}">
+
+{% endif %}

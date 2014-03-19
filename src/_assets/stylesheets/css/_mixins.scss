@@ -1,0 +1,241 @@
+//* === Mixins === */
+
+@mixin box-sizing($box) {
+    -webkit-box-sizing: $box;
+       -moz-box-sizing: $box;
+            box-sizing: $box;
+}
+
+@mixin border-radius($val) {
+    -webkit-border-radius: $val;
+       -moz-border-radius: $val;
+            border-radius: $val;
+}
+
+@mixin box-shadow($val) {
+    -webkit-box-shadow: $val;
+       -moz-box-shadow: $val;
+            box-shadow: $val;
+}
+
+@mixin transition($val) {
+    -webkit-transition: #{$val};
+       -moz-transition: #{$val};
+        -ms-transition: #{$val};
+         -o-transition: #{$val};
+            transition: #{$val};
+}
+
+@mixin transform($val) {
+    -webkit-transform: #{$val};
+       -moz-transform: #{$val};
+        -ms-transform: #{$val};
+         -o-transform: #{$val};
+            transform: #{$val};
+}
+
+@mixin animation($val) {
+    -webkit-animation: #{$val};
+       -moz-animation: #{$val};
+        -ms-animation: #{$val};
+         -o-animation: #{$val};
+            animation: #{$val};
+}
+
+@mixin calc($prop, $expr, $legacy) {
+	@if $legacy != null {
+		#{$prop}	: #{$legacy};		/* Safari < 6, IE8*/
+	}
+    #{$prop}: -webkit-calc(#{$expr});   /* WebKit 536.3 (Chrome 19) and above, experimental */
+    #{$prop}:    -moz-calc(#{$expr});   /* Gecko 2.0 (Firefox 4) and above, experimental, will be dropped */
+    #{$prop}:         calc(#{$expr});   /* final CSS3 compliant implementation; Firefox 16 and IE 9, and above */
+}
+
+
+@mixin truncate($truncation-boundary: '100%') {
+    max-width		: #{$truncation-boundary};
+    white-space 	: nowrap;
+    overflow		: hidden;
+    text-overflow	: ellipsis;
+}
+
+@mixin fontface($name, $url, $original, $weight: 'normal', $style : 'normal') {
+    @font-face {
+        font-family: $name;
+
+        src: url('#{$url}.eot');
+        src: url('#{$url}.eot?#iefix') format('embedded-opentype'),
+             url('#{$url}.woff') format('woff'),
+             url('#{$url}.ttf') format('truetype'),
+             url('#{$url}.svg##{$original}') format('svg');
+
+        font-weight   : $weight;
+        font-style    : $style;
+        unicode-range : U+00-017C;
+    }
+}
+
+@mixin color($color) {
+    color: $color;
+    text-decoration: none;
+    &:link, &:visited, &:hover, &:focus, &:active {
+        color   : $color;
+    }
+}
+
+@mixin cursor($url) {
+	cursor : url(#{$url}), auto;
+	.lte-ie8 & {
+		cursor : url(#{$url});
+	}
+}
+
+
+//* === mediaqueries === */
+
+$fix-mqs: false !default;
+
+// base font: 16px 
+$unit: "px";
+$desktop-large  : 1440;    /* 1440px / 16px */
+$desktop-medium : 1200;    /* 1200px / 16px */
+$desktop        : 1024;    /* 1024px / 16px */
+
+$tablet			: 768;     /* 768px / 16px */
+$tablet-small	: 660;     /* 600px / 16px */
+$mobile-large	: 480;     /* 480px / 16px */
+$mobile			: 320;     /* 320px / 16px */
+
+$high-density   : "only screen and (min--moz-device-pixel-ratio: 1.5),
+				   only screen and (-o-min-device-pixel-ratio: 3/2),
+			       only screen and (-webkit-min-device-pixel-ratio: 1.5),
+				   only screen and (min-resolution: 144dpi),
+		           only screen and (min-resolution: 1.5dppx)";
+
+
+@mixin mq-min ($width, $ratio: 1) {
+	@if $ratio > 1 {
+		@if $width > 0 {
+			@media only screen and (min-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
+			only screen and (min-width: #{$width}#{$unit}) and (min-resolution: #{$ratio * 96}dpi) {
+				@content;
+			}
+		}
+		@else {
+			@media (-webkit-min-device-pixel-ratio: $ratio), (min-resolution: #{$ratio * 96}dpi) {
+				@content;
+			}
+		}
+	}
+	@else {
+		@media screen and (min-width: #{$width}#{$unit}) {
+			@content;
+		}
+	}
+}
+
+@mixin mq-hd {
+	@media #{$high-density} {
+		@content; 
+	}
+}
+
+@mixin respond-to($width, $ratio: 1) {
+	@if $fix-mqs {
+		@if $fix-mqs >= $width and $ratio == 1 {
+			@content;
+		}
+	}
+	@else {
+		@include mq-min($width, $ratio) {
+			@include mq-comment($width, $ratio);
+			@content;
+		}
+	}
+}
+
+// Creates comment header for media queries
+@mixin mq-comment ($width, $ratio) {
+	/**
+	 * min-width:#{$width}#{$unit} : #{$ratio}x
+	 * ==================================== */
+}
+
+
+//* === Retina images === */
+// Usage:  @include image-2x("logo2x.png", 100px, 25px);
+@mixin image-2x($image, $width, $height) {
+	background-image: url($image);
+	background-size: $width $height;
+}
+
+
+//* === sprites (1 class) === */
+
+@mixin sprite-pos($pos) {
+	background-position: $pos;
+}
+
+%sprite {
+	background: url(imgs/sprite.png) no-repeat 0 0;
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	@include image-2x("logo2x.png", 200px, 20px);
+}
+
+@mixin createsprite($pos, $class: "%sprite") {
+	@extend #{$class};
+	@include sprite-pos($pos);
+}
+
+//* Test */
+// .icon-1 { @include createsprite(-25px 0); }
+// .icon-2 { @include createsprite(-50px 0); }
+
+
+//* === Retina images === */
+// Usage:  @include image-2x("logo2x.png", 100px, 25px);
+
+@mixin image-2x($image, $width, $height) {
+	@media #{$high-density} {
+	background-image: url($image);
+	background-size: $width $height;
+  }
+}
+
+//* === Extend (Abstract classes) === */
+
+/* Set box-sizing */
+%borderbox  { @include box-sizing(border-box);  }
+%contentbox { @include box-sizing(content-box); }
+
+
+
+%clearfix {
+    &:before, &:after { content: ""; display: table; }
+    &:after { clear: both; }
+    *zoom: 1;
+}
+
+
+//* === Image replacement === */
+%ir {
+    text-indent: 100%;
+       overflow: hidden;
+        display: block;
+           font: 0/0 a;
+}
+
+//* === Inline blocks === */
+
+@mixin inlineblock($el: 'li', $valign: 'top') {
+    font-size	: 0;
+	> #{$el} {
+		display 	: inline-block;
+		font-size   : 10px; /* IE8 */
+		font-size   : 1rem;
+		white-space : normal;
+		vertical-align : #{$valign};
+ 	}
+}

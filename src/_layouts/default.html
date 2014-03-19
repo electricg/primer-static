@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7 ie" lang="{{ site.lang }}"><![endif]-->
+<!--[if lte IE 8]><html class="no-js lte-ie8 ie" lang="{{ site.lang }}"><![endif]-->
+<!--[if IE 9]><html class="no-js lte-ie9 ie9 ie" lang="{{ site.lang }}"><![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="{{ site.lang }}"><!--<![endif]-->
+<head>
+
+
+    <!-- :: Pagina generata da Jekyll e GruntJS
+            {% render_time Ultima compilazione: %} 
+            Dev: {{ site.dev.name }}, {{ site.dev.email }} 
+    -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+
+    <title>{% if page.title %}{{ page.title }}{% endif %}</title>
+
+    <script>
+        (function(d, w) {
+            d.className = d.className.replace(/(^|\b)no\-js(\b|$)/, 'js');
+            if (w.self !== w.top) {
+                d.className += " iframe";
+            }
+        }(document.documentElement, window));
+
+        window._q = []; window.$ = function(f){ _q.push(f); };
+    </script>
+
+    <!--[if lt IE 9]><script src="{{ site.libs.shiv | asset_path }}"></script><![endif]-->
+
+    <meta name="description" content="{{ page.meta.description }}">
+    <meta name="author" content="{{ site.meta.author }}">
+
+
+    {% include head-opengraph-meta.html %}
+    {% include head-twittercard-meta.html %}
+
+    <!--[if lte IE 8]>{% stylesheet css/common-ie8 %}<![endif]-->
+    <!--[if gt IE 8]><!-->{% stylesheet css/common %}<!--<![endif]-->
+
+
+    {% if page.css  %}{{ page.css | stylesheet }}{% endif %}
+</head>
+
+
+<body{% if page.type %} class="{{ page.type }}"{% endif %}{% if site.env %} data-env="{{ site.env }}"{% endif %}>
+
+
+    <div id="wrapper">
+
+    {% include header.html %}
+
+
+    <main role="main">
+
+    {{ content }}
+
+    </main>
+
+    {% include footer.html %}
+
+    </div>
+
+    <!-- :: layout script -->
+    <script src="{{ site.libs.jquery  | asset_path }}"></script>
+    <script src="{{ 'js/main.js' | asset_path }}"></script>
+
+    <!-- :: page script -->
+    {% contentblock pagescript %}
+
+    {% if site.env == 'prod' and site.google.analytics.UA %}
+        <!-- :: google analytics -->
+        {% include google-analytics.html %}
+    {% endif %}
+
+    {% if site.env == 'dev' and site.libs.livereload %}
+    <!--[if gt IE 9]><!--><script src="{{ site.libs.livereload }}"> </script><!--<![endif]-->
+    {% endif %}
+
+
+</body>
+</html>

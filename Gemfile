@@ -1,0 +1,10 @@
+source "https://rubygems.org"
+gem "rake"
+gem "jekyll"
+gem "jekyll-assets"
+gem 'jekyll-contentblocks'
+gem "sass"
+gem "sprockets"
+gem "sprockets-sass"
+gem "yui-compressor"
+gem "git"

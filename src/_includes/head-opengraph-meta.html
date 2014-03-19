@@ -1,0 +1,12 @@
+{% if site.og %}
+
+    <!-- :: meta opengraph FB -->
+    <meta property="og:url" content="{{ site.og.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ page.og.image }}">
+    <meta property="og:title" content="{{ page.og.title }}">
+    <meta property="og:locale" content="it_IT">
+    <meta property="fb:app_id" content="{{ site.fb.app_id }}">
+    <meta property="og:description" content="{{ page.og.desc }}">
+    
+{% endif %}
