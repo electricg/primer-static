@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         project: {
-            name: "<project-name>"
+            name: "primer-static"
         },
 
         datetime: {
