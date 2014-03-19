@@ -1,7 +1,7 @@
-Primer-static
+Primerstatic
 ===
 
-A base configuration for JekyllRB and GruntJS for an efficient-n-fast 
+Primerstatic is a base configuration for JekyllRB and GruntJS for an efficient-n-fast 
 workflow for the modern development of static sites.
 ***
 
@@ -14,6 +14,8 @@ Requirements
 
 Setup
 ---
+Clone this repository in a local folder, then:
+
 
 1. Install NPM (Node Package Manager) and Grunt CLI
     <pre>
@@ -44,11 +46,17 @@ Open the terminal and type
 
 This task will listen to any changes that occur into your `/src` folder and   this will cause Jekyll to immediately recompile all the pages into the `/dev` folder.
 
-When you also want to perform some further checks, you may just type
+When you also want to perform some further checks, you may just type only
 
-<pre>grunt watch</pre>
+<pre>grunt</pre>
 
-This task cause Jekyll to immediately recompile all the pages into the `/dev` folder, but some other grunt task will be executed: A jslinter will check the javascript code, a markup validator task will assure that every template   is validated and the smushit task will shrink the size of your images inside  `/src` folder (the images into `/src` won't be changed).
+This task cause Jekyll to immediately recompile all the pages into the `/dev` folder as in the prvious task, but some other grunt tasks will be executed: A jslinter will check the javascript code, another task will assure that every template has no validation errors and the *smushit* task will shrink the size of your images inside  `/src` folder (the images into `/src` won't be changed).
+
+When your code is ready for a stage deployment, the task to call is 
+
+<pre>grunt deploy</pre>
+
+
 
 
 Note: `jekyll` may raise a warning 
