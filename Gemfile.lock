@@ -9,7 +9,6 @@ GEM
       highline (~> 1.6.11)
     fast-stemmer (1.0.2)
     ffi (1.9.3)
-    git (1.2.6)
     highline (1.6.21)
     hike (1.2.3)
     jekyll (1.4.3)
@@ -69,7 +68,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  git
   jekyll
   jekyll-assets
   jekyll-contentblocks
