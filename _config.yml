@@ -34,9 +34,10 @@ assets:
         - _assets/javascripts
         - _assets/stylesheets
 
+
     css_compressor: sass
     cache: false
-    
+    gzip : false
 
 # =================================================================== 
 # Site Libraries 
