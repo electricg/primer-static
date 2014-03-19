@@ -97,14 +97,14 @@ $fix-mqs: false !default;
 
 // base font: 16px 
 $unit: "px";
-$desktop-large  : 1440;    /* 1440px / 16px */
-$desktop-medium : 1200;    /* 1200px / 16px */
-$desktop        : 1024;    /* 1024px / 16px */
+$desktop-large  : 1440;    
+$desktop-medium : 1200;    
+$desktop        : 1024;    
 
-$tablet			: 768;     /* 768px / 16px */
-$tablet-small	: 660;     /* 600px / 16px */
-$mobile-large	: 480;     /* 480px / 16px */
-$mobile			: 320;     /* 320px / 16px */
+$tablet			: 768;     
+$tablet-small	: 600;      
+$mobile-large	: 480;     
+$mobile			: 320;     
 
 $high-density   : "only screen and (min--moz-device-pixel-ratio: 1.5),
 				   only screen and (-o-min-device-pixel-ratio: 3/2),

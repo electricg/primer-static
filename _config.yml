@@ -9,8 +9,9 @@ dev:
 # =================================================================== 
 # Language & Copyright Note
 # =================================================================== 
-lang: it
-meta:
+lang   : it
+locale : it_IT
+meta   :
     author: H-art 2014 
     copyright: H-art 2014
 
