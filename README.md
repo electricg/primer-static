@@ -45,17 +45,21 @@ Open the terminal and type
 <pre>grunt watch</pre>
 
 This task will listen to any changes that occur into your `/src` folder and   this will cause Jekyll to immediately recompile all the pages into the `/dev` folder.
+***
 
 When you also want to perform some further checks, you may just type only
 
 <pre>grunt</pre>
 
-This task cause Jekyll to immediately recompile all the pages into the `/dev` folder as in the prvious task, but some other grunt tasks will be executed: A jslinter will check the javascript code, another task will assure that every template has no validation errors and the *smushit* task will shrink the size of your images inside  `/src` folder (the images into `/src` won't be changed).
+This task cause Jekyll to immediately recompile all the pages into the `/dev` folder as in the prvious task, but some other GruntJS tasks will be executed: A jslinter will check the javascript code, another task will assure that every template has no validation errors and the *smushit* task will shrink the size of your images inside  `/src` folder (the images into `/src` won't be changed).
+***
 
 When your code is ready for a stage deployment, the task to call is 
 
 <pre>grunt deploy</pre>
 
+With this task the optimized website will be compiled into `/prod` folder
+but GruntJS will execute further tasks, like space/indent normalization, an automatic compressed archive of `/src` and `/prod` inside the `/backup` folder and if properly configured will try to copy the generated site by remote synchronization (*rsync*)
 
 
 
