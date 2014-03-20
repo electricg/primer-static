@@ -44,12 +44,31 @@ Once the setup has completed and this repository is cloned locally, go on with t
 
 - remove ``.git`` folder and ``.gitignore`` file;
 
-- if you need to use your own Git repository for the project then rename ``.gitignore.dist`` into ``.gitignore` 
+- if you need to use your own Git repository for the project then rename ``.gitignore.dist`` into `.gitignore` 
 
 - open ``_config.yml`` and change the information under *Project owner / contributor* and *Language & Copyright Note* sections with the project information; 
 
 - if you want to take benefit of the *livereload* feature then change the livereload value under *Site Libraries* section, Otherwise just remove the whole line. In the same section you may change, add or remove as many references to js libraries as you prefer;
 ***
+
+
+Workflow
+---
+
+- Place your HTML templates into the ``/src`` folder;
+
+- partials must be saved under ``/src/_includes/`` folder, layouts must be saved under ``/src/_layouts/``;
+
+- place all the javascript files under ``_assets/javascript/js`` and all the SASS file under ``_assets/stylesheets/css``. (the content of ``_assets`` folder is managed by *jekyll-assets*);
+
+- if *livereload* is properly configured, the grunt watch is running, and your client is connected to the page through a LAN IP, all the changes done are automatically available without the need to manually refresh the page. This is really time-saving especially during multidevice testing. 
+
+    Livereload is enabled by default only on **development** environment and not on ``IE<10``;
+
+- If you have the need to check how your website works with a slow connection. In the ``/utils`` folder try to run ``./slowconn.sh`` (follow the simple instructions);
+
+***
+
 
 Development
 ---
@@ -71,7 +90,7 @@ When you also want to perform some further checks , you may just type only
 
 This task cause Jekyll to immediately recompile all the pages into the `/dev` folder as in the previous task, but some other GruntJS tasks will be executed: 
 
-- *grunt-jslint* checks the quality of the javascript code (the libraries under vendors folder won't be checked);
+- *grunt-jslint* checks the quality of the javascript code (the libraries under ``_assets/javascript/js/vendors`` folder won't be checked);
 
 - *grunt-html-validation* assures that every template has no validation errors (a report with the validation result will be generated in the destination folder).
 ***
@@ -80,7 +99,7 @@ When your code is ready for a stage deployment, the task to call is
 
 <pre>grunt prod</pre>
 
-With this task the optimized website will be compiled under the `/prod` folder.
+and the optimized website will be compiled under the `/prod` folder.
 
 GruntJS will execute all the tasks previously described  plus the following others: 
 

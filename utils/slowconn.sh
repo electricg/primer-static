@@ -25,9 +25,10 @@ elif [ "$CMD" = "end" ] ; then
     echo ""
 
 else
+    echo "\033[32mEmulates a slow bandwidth and/or latency\n"
     echo "\033[33mAvailable commands"
-    echo "\033[37m=> hardtest start [transfer-rate] [delay]"
+    echo "\033[37m=> slowconn.sh start [transfer-rate] [delay]"
     echo "\033[37m  [transfer-rate] in Kbit/s \033[33m(default: 500Kbit/s)"
     echo "\033[37m  [latency] in ms \033[33m(default: 500ms)"
-    echo "\033[37m\n=> hardtest end\n"
+    echo "\033[37m\n=> slowconn.sh end\n"
 fi
