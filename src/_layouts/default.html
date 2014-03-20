@@ -59,26 +59,23 @@
 
     </main>
 
+    
     {% include footer.html %}
-
+    
     </div>
 
     <!-- :: layout script -->
     <script src="{{ site.libs.jquery  | asset_path }}"></script>
     <script src="{{ 'js/main.js' | asset_path }}"></script>
 
-    <!-- :: page script -->
-    {% contentblock pagescript %}
+    <!-- :: page script -->{% contentblock pagescript %}
 
     {% if site.env == 'prod' and site.google.analytics.UA %}
-        <!-- :: google analytics -->
         {% include google-analytics.html %}
     {% endif %}
 
     {% if site.env == 'dev' and site.libs.livereload %}
     <!--[if gt IE 9]><!--><script src="{{ site.libs.livereload }}"> </script><!--<![endif]-->
     {% endif %}
-
-
 </body>
 </html>

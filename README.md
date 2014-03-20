@@ -25,11 +25,11 @@ sudo npm install -g grunt-cli
 </pre>
 
 
-2. Install all the Node modules listed on `package.json`
+2. Install all the Node modules listed into `package.json`
     <pre>npm install</pre>
 
 
-3. Install all the Ruby gems required to Jekyll (listed into `Gemfile`
+3. Install all the Ruby gems required to Jekyll (listed into `Gemfile`)
 
     <pre>bundle install</pre>
 &mdash; or &mdash;

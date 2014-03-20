@@ -45,8 +45,9 @@ assets:
 # =================================================================== 
 libs:
     
-    # Needed for livereload. You may use the script included 
-    # in tools/ip.sh to retrieve your LAN IP
+    # Needed for livereload. You may use the script «ip.sh» included 
+    # in tools/ folder to retrieve your LAN IP
+    
     livereload : http://10.10.9.100:35729/livereload.js 
 
     shiv       : js/vendors/html5-shiv.js

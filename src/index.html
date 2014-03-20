@@ -15,6 +15,20 @@ style  : css/primerstatic.css
     <img src="images/static/jekyll-logo.png" />
     <img src="images/static/gruntjs-logo.png" />
 </figure>
+
+
+<h2>Changelog</h2>
+
+    <p>See the <a href="changelog.html">changelog page</a> for detail</p>
+
+    <ul id="changelog">
+    {% for release in site.data.changelog %} 
+        <li>
+            {{ release.date }}: <b>{{ release.version }}</b>
+        </li>
+    {% endfor %}
+    </ul>
+
 {% contentfor pagescript %}
 <script>
     

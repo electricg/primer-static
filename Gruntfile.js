@@ -44,10 +44,11 @@ module.exports = function(grunt) {
 
         prettify: {
             options: {
-                indent_size: 4,
+                indent: 4,
                 indent_char: " ",
+                condense: false,
                 preserve_newlines: true,
-                unformatted: ["pre", "code"]
+                unformatted: ["head", "pre", "code"]
             },
             
             all: {
