@@ -9,7 +9,7 @@ Requirements
 ---
 
 - **Ruby 1.9.x**. *You can check the version intalled by typing `ruby -v` into your terminal*
-- **NodeJS 0.10.x** (or higher) 
+- **NodeJS 0.10.25** (or higher) 
 
 
 Setup
@@ -51,7 +51,7 @@ When you also want to perform some further checks, you may just type only
 
 <pre>grunt</pre>
 
-This task cause Jekyll to immediately recompile all the pages into the `/dev` folder as in the previous task, but some other GruntJS tasks will be executed: A jslinter will check the javascript code, another task will assure that every template has no validation errors and the *smushit* task will shrink the size of your images inside  `/src` folder (the images into `/src` won't be changed).
+This task cause Jekyll to immediately recompile all the pages into the `/dev` folder as in the previous task, but some other GruntJS tasks will be executed: A jslinter will check the javascript code, and another task will assure that every template has no validation errors (a report will be generated in the destination folder).
 ***
 
 When your code is ready for a stage deployment, the task to call is 
@@ -59,7 +59,7 @@ When your code is ready for a stage deployment, the task to call is
 <pre>grunt deploy</pre>
 
 With this task the optimized website will be compiled into `/prod` folder
-but GruntJS will execute further tasks, like space/indent normalization, an automatic compressed archive of `/src` and `/prod` inside the `/backup` folder and if properly configured will try to copy the generated site by remote synchronization (*rsync*)
+but GruntJS will execute further tasks: the *smushit* task will shrink the size of your images inside `/prod` folder (the images into `/src` won't be changed) spaces and indenting are normalized, an automatic compressed archive of `/src` and `/prod` inside the `/backup` folder and if properly configured will try to copy the generated site by remote synchronization (*rsync*)
 
 
 

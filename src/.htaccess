@@ -1,5 +1,4 @@
 Options +indexes
-DirectoryIndex Off
 
 # Apache Server Configs v2.2.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
@@ -336,7 +335,7 @@ AddDefaultCharset utf-8
 # places such as the CMS's directories).
 
 <IfModule mod_autoindex.c>
-    Options -Indexes
+    #Options -Indexes
 </IfModule>
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -4,7 +4,8 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         project: {
-            name: "primer-static"
+            name: "primer-static",
+            url : "http://primerstatic.prod/"
         },
 
         datetime: {
@@ -75,7 +76,7 @@ module.exports = function(grunt) {
                 options: {
                     reset: true,
                     stoponerror: false,
-                    path: "prod/<%= project.name %>-PROD-validation-<%= timestamp %>.json",
+                    path: "prod/<%= project.name %>-W3Cvalidation.json",
                     reportpath: false,
                     relaxerror: ["X-UA", "role"]
                 },
@@ -131,18 +132,6 @@ module.exports = function(grunt) {
         },
 
 
-        cmq: {
-            options: {
-                log: true
-            },
-            prod: {
-                files: {
-                    'tmp': ['test/*.css']
-                }
-            }
-        },
-
-
         compress: {
             src: {
                 options: {
@@ -164,17 +153,11 @@ module.exports = function(grunt) {
             }        
         },       
 
-        // https://github.com/llkats/grunt-snapshots
-        snapshots: {
-            homepage: {
-                options: {
-                    filename: 'pic',
-                    path: 'tmp/custom/pics',
-                    extension: 'png',
-                    url: 'http://aww.dev',
-                    timestamp: true,
-                    unique: false
-                }
+        sitemap: {
+            prod: {
+                siteRoot: "prod/",
+                pattern:  "**/*.html",
+                homepage: "<%= project.url %>"
             }
         },
         
@@ -198,20 +181,21 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-rsync")
     grunt.loadNpmTasks('grunt-smushit');
     grunt.loadNpmTasks('grunt-lineending');
-    grunt.loadNpmTasks('grunt-devtools');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-html-validation');
+    grunt.loadNpmTasks('grunt-sitemap');
 
     // This is the default task being executed if Grunt
     // is called without any further parameter.
     grunt.registerTask(
         'default', 
         'Call Jekyll compilation using DEV configuration (on dev/ folder)',
-        ['shell:jekylldev', 'jshint', 'validation:dev', 'smushit:dev']);
+        ['shell:jekylldev', 'jshint', 'validation:dev']);
     
     grunt.registerTask(
         'deploy', 
         'Deploy clean templates in a remote server using PROD configuration (on prod/ folder)',
-        ['shell:jekyllprod', 'prettify', 'jshint', 'validation:prod', 'lineending', 'smushit:prod', 'compress:src', 'compress:prod', 'rsync:prod']);
+        ['shell:jekyllprod', 'prettify', 'jshint', 'validation:prod', 'lineending', 'smushit:prod', 
+         'sitemap:prod', 'compress:src', 'compress:prod', 'rsync:prod']);
 
 };
