@@ -35,7 +35,21 @@ sudo npm install -g grunt-cli
 &mdash; or &mdash;
 
     <pre>sudo gem install jekyll jekyll-assets jekyll-contentblocks sass sprockets sprockets-sass yui-compressor</pre>
+***
 
+Configuration
+---
+
+Once the setup has completed and this repository is cloned locally, go on with the following steps:
+
+- remove ``.git`` folder and ``.gitignore`` file;
+
+- if you need to use your own Git repository for the project then rename ``.gitignore.dist`` into ``.gitignore` 
+
+- open ``_config.yml`` and change the information under *Project owner / contributor* and *Language & Copyright Note* sections with the project information; 
+
+- if you want to take benefit of the *livereload* feature then change the livereload value under *Site Libraries* section, Otherwise just remove the whole line. In the same section you may change, add or remove as many references to js libraries as you prefer;
+***
 
 Development
 ---
@@ -44,24 +58,45 @@ Open the terminal and type
 
 <pre>grunt watch</pre>
 
-This task will listen to any changes that occur into your `/src` folder and   this will cause Jekyll to immediately recompile all the pages into the `/dev` folder.
+This task will only listen to any changes that occur into your `/src` folder and this will cause Jekyll to immediately recompile all the pages into the `/dev` folder. 
+
+The *jekyll-assets* rubygem provides automatic SASS compilation and minification of the assets on the optimized version of the website.
+
+**When a new file is created in the source directory, stop and re-launch this task and then just apply a change to force a Jekyll recompilation.**
 ***
 
-When you also want to perform some further checks, you may just type only
+When you also want to perform some further checks , you may just type only
 
-<pre>grunt</pre>
+<pre>grunt dev</pre>
 
-This task cause Jekyll to immediately recompile all the pages into the `/dev` folder as in the previous task, but some other GruntJS tasks will be executed: A jslinter will check the javascript code, and another task will assure that every template has no validation errors (a report will be generated in the destination folder).
+This task cause Jekyll to immediately recompile all the pages into the `/dev` folder as in the previous task, but some other GruntJS tasks will be executed: 
+
+- *grunt-jslint* checks the quality of the javascript code (the libraries under vendors folder won't be checked);
+
+- *grunt-html-validation* assures that every template has no validation errors (a report with the validation result will be generated in the destination folder).
 ***
 
 When your code is ready for a stage deployment, the task to call is 
 
-<pre>grunt deploy</pre>
+<pre>grunt prod</pre>
 
-With this task the optimized website will be compiled into `/prod` folder
-but GruntJS will execute further tasks: the *smushit* task will shrink the size of your images inside `/prod` folder (the images into `/src` won't be changed) spaces and indenting are normalized, an automatic compressed archive of `/src` and `/prod` inside the `/backup` folder and if properly configured will try to copy the generated site by remote synchronization (*rsync*)
+With this task the optimized website will be compiled under the `/prod` folder.
+
+GruntJS will execute all the tasks previously described  plus the following others: 
+
+- *grunt-smushit* task will shrink the size of your `.png` and `.jpg` images inside `/prod` folder (the images into `/src` won't be changed);
+
+- spaces and indentation are normalized by *grunt-prettify*;  
+
+- two compressed archives of `/src` and `/prod` will be automatically created inside the `/backup` folder by *grunt-contrib-compress*;
+
+- *grunt-rsync*, when properly configured, will try to copy the generated site to a staging server by a remote synchronization.
+
+***
 
 
+Known issues
+---
 
 Note: `jekyll` may raise a warning 
 

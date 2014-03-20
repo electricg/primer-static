@@ -189,12 +189,12 @@ module.exports = function(grunt) {
     // This is the default task being executed if Grunt
     // is called without any further parameter.
     grunt.registerTask(
-        'default', 
+        'dev', 
         'Call Jekyll compilation using DEV configuration (on dev/ folder)',
         ['shell:jekylldev', 'jshint', 'validation:dev']);
     
     grunt.registerTask(
-        'deploy', 
+        'prod', 
         'Deploy clean templates in a remote server using PROD configuration (on prod/ folder)',
         ['shell:jekyllprod', 'prettify', 'jshint', 'validation:prod', 'lineending', 'smushit:prod', 
          'sitemap:prod', 'compress:src', 'compress:prod', 'rsync:prod']);
